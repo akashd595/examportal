@@ -29,6 +29,11 @@ public class UserController {
         return this.userService.createUser(user, roles);
 
     }
+    @GetMapping("/username/{username}")
+    public User getUSer(@PathVariable String username) throws Exception {
+
+        return this.userService.getUser(username);
+    }
 
 
 }

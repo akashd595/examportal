@@ -54,4 +54,12 @@ public class UserServiceImpl implements UserService {
         }
         return local;
     }
+
+    @Override
+    public User getUser(String username) throws Exception {
+        User local = userRepository.findByUsername(username);
+        return local;
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.exam.service.implementation;
 
+import com.exam.helper.UserFoundException;
 import com.exam.models.User;
 import com.exam.models.UserRoles;
 import com.exam.repository.RoleRepository;
@@ -26,13 +27,10 @@ public class UserServiceImpl implements UserService {
         System.out.println("here 26");
         User local = userRepository.findByUsername(user.getUsername());
 
-
         if(local != null){
-            System.out.println("here 31");
 
-            //that means it is already present in our database
-            System.out.println("User already present");
-            throw new Exception("User already present");
+            //that means it is already present in our records
+            throw new UserFoundException();
         }else{
             System.out.println("here 37");
             System.out.println("userRoles "+userRoles.toString());
